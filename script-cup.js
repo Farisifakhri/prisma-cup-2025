@@ -54,3 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// ===========================================
+    // BAGIAN 3: LOGIKA UNTUK MENU HAMBURGER
+    // ===========================================
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburgerBtn.addEventListener('click', () => {
+        // Toggle class 'active' pada menu
+        navLinks.classList.toggle('active');
+    });

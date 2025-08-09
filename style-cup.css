@@ -367,3 +367,66 @@ section h2 {
         gap: 10px;
     }
 }
+
+/* ===== STYLE & LOGIKA MENU HAMBURGER ===== */
+
+/* Sembunyikan tombol hamburger di layar besar (desktop) */
+.hamburger-btn {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Aturan untuk layar mobile (lebar maks 768px) */
+@media (max-width: 768px) {
+    /* Tampilkan tombol hamburger */
+    .hamburger-btn {
+        display: block;
+        z-index: 1001; /* Pastikan di atas menu */
+    }
+
+    /* Atur posisi menu link agar bisa muncul dari atas */
+    .nav-links {
+        display: none; /* Sembunyikan menu secara default */
+        position: absolute;
+        top: 70px; /* Muncul persis di bawah header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* State ketika menu aktif/terbuka */
+    .nav-links.active {
+        display: block;
+    }
+
+    /* Ubah layout list menjadi vertikal */
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .main-nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block; /* Buat link memenuhi seluruh area li */
+        padding: 15px 0;
+    }
+    
+    .nav-button {
+        margin: 10px 20px;
+    }
+    
+    /* Kembalikan padding-top hero ke nilai awal */
+    #hero {
+        padding-top: 70px;
+    }
+}
