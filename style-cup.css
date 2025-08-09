@@ -9,7 +9,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Kunci untuk efek smooth scroll */
+    scroll-behavior: smooth; /* Membuat scroll antar section menjadi halus */
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    /* overflow: hidden; Dihapus dari sini dan diatur oleh JS */
+    /* overflow diatur oleh JavaScript untuk menangani intro */
 }
 
 /* ===== STYLE INTRO FUTURISTIK ===== */
@@ -73,7 +73,6 @@ body {
     animation: flicker 2s infinite;
 }
 
-
 /* ===== STYLE KONTEN UTAMA ===== */
 .main-content-wrapper {
     width: 100%;
@@ -88,7 +87,6 @@ body {
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
-    transition: background-color 0.3s ease;
 }
 
 .main-nav {
@@ -122,12 +120,11 @@ body {
     color: #333;
     font-weight: 700;
     padding-bottom: 5px;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .main-nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 2px solid #0056b3;
 }
 
 .nav-button {
@@ -140,7 +137,6 @@ body {
 
 .nav-button:hover {
     background-color: #cc7000;
-    border-bottom: none;
 }
 
 /* Hero Section */
@@ -152,7 +148,7 @@ body {
     text-align: center;
     height: 100vh;
     color: white;
-    padding-top: 70px; /* Memberi ruang agar tidak tertutup header */
+    padding: 70px 20px 0 20px; /* Memberi ruang agar tidak tertutup header */
     background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 40, 85, 0.7)), url('https://source.unsplash.com/1600x900/?soccer-stadium') no-repeat center center/cover;
 }
 
@@ -183,7 +179,6 @@ body {
     padding: 15px;
     border-radius: 10px;
     min-width: 100px;
-    text-align: center;
 }
 
 .time-box span {
@@ -211,7 +206,7 @@ body {
     font-weight: 700;
 }
 
-/* CTA Button in Hero */
+/* CTA Button di Hero */
 #hero .cta-button {
     font-size: 1.2em;
     font-weight: 700;
@@ -220,7 +215,7 @@ body {
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #hero .cta-button:hover {
@@ -228,13 +223,15 @@ body {
     transform: translateY(-3px);
 }
 
-
 /* Pengaturan Dasar untuk Section Lainnya */
+main {
+    width: 100%;
+}
+
 section {
     padding: 100px 20px;
     max-width: 1000px;
     margin: 0 auto;
-    min-height: 80vh; /* Memberi tinggi agar ada ruang untuk scroll */
 }
 
 section h2 {
@@ -247,7 +244,10 @@ section h2 {
 
 #tentang { background-color: #ffffff; }
 #jadwal { background-color: #f4f4f4; }
-/* ...dan seterusnya untuk section lain */
+#lomba { background-color: #ffffff; }
+#galeri { background-color: #f4f4f4; }
+#faq { background-color: #ffffff; }
+#kontak { background-color: #f4f4f4; }
 
 
 /* Footer */
@@ -277,14 +277,14 @@ section h2 {
     20%, 24%, 55% { text-shadow: none; opacity: 0.5; }
 }
 
-/* Animasi Konten Hero */
+/* Animasi Konten Hero Saat Muncul */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 #hero h1, #hero .tagline, #hero .countdown, #hero .key-info, #hero .cta-button {
-    opacity: 0; /* Awalnya disembunyikan */
+    opacity: 0; /* Awalnya disembunyikan agar animasi berjalan mulus */
 }
 
 .main-content-wrapper.loaded #hero h1 { animation: fadeIn 1s ease-out 0.2s forwards; }
