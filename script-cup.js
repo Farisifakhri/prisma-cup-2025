@@ -1,31 +1,20 @@
-// Menunggu seluruh konten halaman dan CSS dimuat SEBELUM semua script dijalankan
 document.addEventListener('DOMContentLoaded', () => {
-
-    // ===================================
-    // BAGIAN 1: LOGIKA UNTUK INTRO SCREEN
-    // ===================================
     const introScreen = document.getElementById('intro-screen');
     const mainContent = document.querySelector('.main-content-wrapper');
 
-    // Kunci scroll di body saat intro aktif
     document.body.style.overflow = 'hidden';
-
-    // Atur durasi intro dalam milidetik (contoh: 4000ms = 4 detik)
-    const introDuration = 4000; 
+    const introDuration = 4000;
 
     setTimeout(() => {
         introScreen.style.opacity = '0';
         introScreen.style.visibility = 'hidden';
         mainContent.style.visibility = 'visible';
         mainContent.classList.add('loaded');
-        document.body.style.overflow = 'auto'; // Buka kembali kunci scroll
+        document.body.style.overflow = 'auto';
     }, introDuration);
 
-
-    // =======================================
-    // BAGIAN 2: LOGIKA UNTUK COUNTDOWN TIMER
-    // =======================================
-    const targetDate = new Date('Oct 25, 2025 08:00:00').getTime(); // Menggunakan tanggal yang sudah diupdate
+    // Countdown Timer
+    const targetDate = new Date('Oct 25, 2025 08:00:00').getTime();
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
@@ -53,15 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
         secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
     }
 
-});
-
-// ===========================================
-    // BAGIAN 3: LOGIKA UNTUK MENU HAMBURGER
-    // ===========================================
+    // Hamburger Menu
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('nav-links');
 
     hamburgerBtn.addEventListener('click', () => {
-        // Toggle class 'active' pada menu
         navLinks.classList.toggle('active');
+
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     });
+});

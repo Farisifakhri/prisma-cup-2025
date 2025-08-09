@@ -9,7 +9,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Membuat scroll antar section menjadi halus */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,7 +17,12 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    /* overflow diatur oleh JavaScript untuk menangani intro */
+}
+
+/* Semua gambar & video responsif */
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ===== STYLE INTRO FUTURISTIK ===== */
@@ -148,7 +153,7 @@ body {
     text-align: center;
     height: 100vh;
     color: white;
-    padding: 70px 20px 0 20px; /* Memberi ruang agar tidak tertutup header */
+    padding: calc(70px + 5vh) 20px 0 20px;
     background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 40, 85, 0.7)), url('https://source.unsplash.com/1600x900/?soccer-stadium') no-repeat center center/cover;
 }
 
@@ -166,7 +171,7 @@ body {
     opacity: 0.9;
 }
 
-/* Countdown Timer Styles */
+/* Countdown Timer */
 .countdown {
     display: flex;
     justify-content: center;
@@ -192,7 +197,7 @@ body {
     opacity: 0.8;
 }
 
-/* Key Info Styles */
+/* Key Info */
 .key-info {
     display: flex;
     gap: 30px;
@@ -206,7 +211,7 @@ body {
     font-weight: 700;
 }
 
-/* CTA Button di Hero */
+/* CTA Button */
 #hero .cta-button {
     font-size: 1.2em;
     font-weight: 700;
@@ -223,14 +228,14 @@ body {
     transform: translateY(-3px);
 }
 
-/* Pengaturan Dasar untuk Section Lainnya */
+/* Section */
 main {
     width: 100%;
 }
 
 section {
-    padding: 100px 20px;
-    max-width: 1000px;
+    padding: 80px 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -249,7 +254,6 @@ section h2 {
 #faq { background-color: #ffffff; }
 #kontak { background-color: #f4f4f4; }
 
-
 /* Footer */
 .main-footer {
     background-color: #333;
@@ -258,9 +262,7 @@ section h2 {
     padding: 20px;
 }
 
-
-/* ===== KEYFRAMES ANIMASI ===== */
-/* Animasi Intro */
+/* ===== Animations ===== */
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 15px #00FF00; }
     50% { transform: scale(1.05); box-shadow: 0 0 25px #00FF00; }
@@ -277,14 +279,13 @@ section h2 {
     20%, 24%, 55% { text-shadow: none; opacity: 0.5; }
 }
 
-/* Animasi Konten Hero Saat Muncul */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 #hero h1, #hero .tagline, #hero .countdown, #hero .key-info, #hero .cta-button {
-    opacity: 0; /* Awalnya disembunyikan agar animasi berjalan mulus */
+    opacity: 0;
 }
 
 .main-content-wrapper.loaded #hero h1 { animation: fadeIn 1s ease-out 0.2s forwards; }
@@ -293,84 +294,24 @@ section h2 {
 .main-content-wrapper.loaded #hero .key-info { animation: fadeIn 1s ease-out 0.8s forwards; }
 .main-content-wrapper.loaded #hero .cta-button { animation: fadeIn 1s ease-out 1s forwards; }
 
-/* ============================================= */
-/* ===== BAGIAN RESPONSIVE (MEDIA QUERIES) ===== */
-/* ============================================= */
-
-/* Untuk layar tablet dan di bawahnya (lebar maks 768px) */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-
-    /* Mengecilkan ukuran font utama di Hero Section */
-    #hero h1 {
-        font-size: 2.5em;
-    }
-
-    #hero .tagline {
-        font-size: 1.2em;
-    }
-
-    /* Mengecilkan ukuran font di countdown timer */
-    .time-box {
-        min-width: 80px;
-        padding: 10px;
-    }
-
-    .time-box span {
-        font-size: 2em;
-    }
-
-    /* Mengubah layout info tanggal & lokasi menjadi ke bawah */
-    .key-info {
-        flex-direction: column;
-        gap: 10px;
-        background: none; /* Hilangkan background agar tidak aneh */
-    }
-
-    /* Mengecilkan judul di setiap section */
-    section h2 {
-        font-size: 2em;
-    }
-
-    /* Membuat navigasi menjadi vertikal */
-    .main-nav {
-        flex-direction: column;
-        height: auto; /* Tinggi header jadi otomatis */
-        padding: 15px 20px;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .main-nav ul li {
-        margin: 10px 0;
-    }
-
-    /* Beri ruang di atas konten agar tidak tertutup header */
-    #hero {
-        padding-top: 200px; /* Sesuaikan angka ini jika perlu */
-    }
+    #hero h1 { font-size: 2.5em; }
+    #hero .tagline { font-size: 1.2em; }
+    .time-box { min-width: 80px; padding: 10px; }
+    .time-box span { font-size: 2em; }
+    .key-info { flex-direction: column; gap: 10px; background: none; }
+    section h2 { font-size: 2em; }
+    section { padding: 60px 15px; }
 }
 
-/* Untuk layar HP (lebar maks 480px) */
+/* Mobile (≤480px) */
 @media (max-width: 480px) {
-    #hero h1 {
-        font-size: 2em;
-    }
-
-    /* Membuat countdown menjadi ke bawah juga */
-    .countdown {
-        flex-direction: column;
-        gap: 10px;
-    }
+    #hero h1 { font-size: 2em; }
+    .countdown { flex-direction: column; gap: 10px; }
 }
 
-/* ===== STYLE & LOGIKA MENU HAMBURGER ===== */
-
-/* Sembunyikan tombol hamburger di layar besar (desktop) */
+/* ===== Hamburger Menu ===== */
 .hamburger-btn {
     display: none;
     font-size: 1.5rem;
@@ -380,53 +321,36 @@ section h2 {
     cursor: pointer;
 }
 
-/* Aturan untuk layar mobile (lebar maks 768px) */
+/* Hamburger Menu Mobile */
 @media (max-width: 768px) {
-    /* Tampilkan tombol hamburger */
-    .hamburger-btn {
-        display: block;
-        z-index: 1001; /* Pastikan di atas menu */
-    }
-
-    /* Atur posisi menu link agar bisa muncul dari atas */
+    .hamburger-btn { display: block; z-index: 1001; }
     .nav-links {
-        display: none; /* Sembunyikan menu secara default */
+        display: flex;
+        flex-direction: column;
         position: absolute;
-        top: 70px; /* Muncul persis di bawah header */
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: white;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
     }
-    
-    /* State ketika menu aktif/terbuka */
     .nav-links.active {
-        display: block;
+        max-height: 500px;
+        opacity: 1;
     }
-
-    /* Ubah layout list menjadi vertikal */
     .main-nav ul {
         flex-direction: column;
         width: 100%;
         padding: 10px 0;
     }
-
-    .main-nav ul li {
-        margin: 0;
-        text-align: center;
-    }
-
+    .main-nav ul li { margin: 0; text-align: center; }
     .main-nav ul li a {
-        display: block; /* Buat link memenuhi seluruh area li */
+        display: block;
         padding: 15px 0;
     }
-    
-    .nav-button {
-        margin: 10px 20px;
-    }
-    
-    /* Kembalikan padding-top hero ke nilai awal */
-    #hero {
-        padding-top: 70px;
-    }
+    .nav-button { margin: 10px 20px; }
 }
