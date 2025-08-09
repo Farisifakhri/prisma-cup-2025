@@ -1,11 +1,9 @@
-// Menunggu seluruh konten halaman dan CSS dimuat sebelum script dijalankan
-
+// Menunggu seluruh konten halaman dan CSS dimuat SEBELUM semua script dijalankan
+document.addEventListener('DOMContentLoaded', () => {
 
     // ===================================
     // BAGIAN 1: LOGIKA UNTUK INTRO SCREEN
     // ===================================
-
-    // Pilih elemen-elemen yang kita butuhkan
     const introScreen = document.getElementById('intro-screen');
     const mainContent = document.querySelector('.main-content-wrapper');
 
@@ -16,25 +14,18 @@
     const introDuration = 4000; 
 
     setTimeout(() => {
-        // 1. Buat layar intro menghilang dengan transisi
         introScreen.style.opacity = '0';
         introScreen.style.visibility = 'hidden';
-        
-        // 2. Tampilkan konten utama dan picu animasinya
         mainContent.style.visibility = 'visible';
-        mainContent.classList.add('loaded'); // Menambah class untuk memicu animasi CSS
-
-        // 3. Buka kembali kunci scroll di body
-        document.body.style.overflow = 'auto';
-
+        mainContent.classList.add('loaded');
+        document.body.style.overflow = 'auto'; // Buka kembali kunci scroll
     }, introDuration);
 
 
-    document.addEventListener('DOMContentLoaded', () => {
-
-    // === FUNGSI COUNTDOWN TIMER ===
-    
-    const targetDate = new Date('Oct 15, 2025 08:00:00').getTime();
+    // =======================================
+    // BAGIAN 2: LOGIKA UNTUK COUNTDOWN TIMER
+    // =======================================
+    const targetDate = new Date('Oct 25, 2025 08:00:00').getTime(); // Menggunakan tanggal yang sudah diupdate
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
